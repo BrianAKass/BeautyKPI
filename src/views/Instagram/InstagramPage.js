@@ -181,54 +181,6 @@ export default function Dashboard() {
             </CardFooter>
           </Card>
         </GridItem>
-        {/* <GridItem xs={12} sm={12} md={8}>
-          <Card>
-            <CardHeader color="info">
-              <h4 className={classes.cardTitleWhite}>Influancer Breakdown</h4>
-              <p className={classes.cardCategoryWhite}>
-                List of top influancers on Youtube
-              </p>
-            </CardHeader>
-            <CardBody>
-              <Table
-                tableHeaderColor="info"
-                tableHead={[
-                  "ID",
-                  "Influancer",
-                  "Preferred Brand (mode 24 hours)",
-                  "Likes our brand overall",
-                  "Positive view of our brand",
-                  "Sponsored",
-                  "Demonitized on YouTube.",
-                  "Notes",
-                ]}
-                tableData={[
-                  [
-                    "0",
-                    "General Public",
-                    "BrandX",
-                    "No",
-                    "Yes",
-                    "No",
-                    "TikTok",
-                  ],
-                  [
-                    "1",
-                    "Online Influancer",
-                    "BrandY",
-                    "yes",
-                    "Yes",
-                    "Yes",
-                    "Instagram",
-                  ],
-                  ["2", "Model", "BrandZ", "No", "No", "No", "Twitter"],
-                  ["3", "Vlogger", "BrandX", "No", "Yes", "Yes", "YouTube"],
-                  ["4", "Drama Queen", "BrandQ", "No", "No", "No", "SnapChat"],
-                ]}
-              />
-            </CardBody>
-          </Card>
-        </GridItem> */}
         <GridItem xs={12} sm={12} md={8}>
           <CustomTabs
             title="Influancer Breakdown:"

@@ -38,6 +38,9 @@ import SubscriptionsIcon from "@material-ui/icons/Subscriptions";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import { bugs, website, server } from "variables/general.js";
 import TextField from "@material-ui/core/TextField";
+import TopRowCard from "components/Card/TopRowCard";
+import ChartCard from "components/Card/ChartCard";
+import TableCard from "components/Card/TableCard";
 
 import {
   dailySalesChart,
@@ -83,78 +86,51 @@ export default function Dashboard() {
   return (
     <div>
       <GridContainer>
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="success" stats icon>
-              <CardIcon color="success">
-                <AttachMoneyIcon />
-              </CardIcon>
-              <p className={classes.cardCategory}>Marketing Budget</p>
-              <h3 className={classes.cardTitle}>$5,400</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Warning />
-                Available Budget: $10,000
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="danger" stats icon>
-              <CardIcon color="danger">
-                <SubscriptionsIcon />
-              </CardIcon>
-              <p className={classes.cardCategory}>
-                Subscribers To Our Youtube Channel
-              </p>
-              <h3 className={classes.cardTitle}>+245</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Update />
-                Last 24 hours
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="success" stats icon>
-              <CardIcon color="success">
-                <ThumbUpIcon />
-              </CardIcon>
-              <p className={classes.cardCategory}>
-                Brand Perception on Platform
-              </p>
-              <h3 className={classes.cardTitle}>Positive</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Update />
-                Last 24 hours
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="primary" stats icon>
-              <CardIcon color="primary">
-                <DynamicFeedIcon />
-              </CardIcon>
-              <p className={classes.cardCategory}>Top Trending Beauty Video</p>
-              <h3 className={classes.cardTitle}>#MoistureChallenge</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <DateRange />
-                Last 24 Hours
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
+        <TopRowCard
+          xs={12}
+          sm={6}
+          md={3}
+          color="success"
+          icon={<AttachMoneyIcon />}
+          icon2={<Warning />}
+          category="Marketing"
+          title="$5,400"
+          lastUpdate="Available Budget: $10,000"
+        />
+        <TopRowCard
+          xs={12}
+          sm={6}
+          md={3}
+          color="danger"
+          icon={<SubscriptionsIcon />}
+          icon2={<Update />}
+          category="Subscribers To Our Youtube Channel"
+          title="+245"
+          lastUpdate="Last 24 Hours"
+        />
+        <TopRowCard
+          xs={12}
+          sm={6}
+          md={3}
+          color="success"
+          icon={<ThumbUpIcon />}
+          icon2={<Update />}
+          category="Brand Perception on Platform"
+          title="Positive"
+          lastUpdate="Last 24 Hours"
+        />
+
+        <TopRowCard
+          xs={12}
+          sm={6}
+          md={3}
+          color="primary"
+          icon={<DynamicFeedIcon />}
+          icon2={<Update />}
+          category="Top Rending Beauty Video"
+          title="#MoistureChallenge"
+          lastUpdate="Last 24 Hours"
+        />
       </GridContainer>
       <GridContainer>
         <GridItem xs={12} sm={12} md={4}>
@@ -387,25 +363,17 @@ export default function Dashboard() {
                         "Yes",
                       ],
                       ["2", "Shock N Aww", "12K", "No", "30s", "20-45", "No"],
-                      ["3", "Discovery", "67K", "yes", "60s", "LGBTQ+ All Ages", "Yes"],
                       [
-                        "4",
-                        "Tiger Stripes",
-                        "8k",
-                        "Yes",
-                        "120s",
-                        "35+",
-                        "No",
-                      ],
-                      [
-                        "4",
-                        "SuperHero",
-                        "38k",
-                        "Yes",
-                        "15s",
-                        "18-30",
+                        "3",
+                        "Discovery",
+                        "67K",
+                        "yes",
+                        "60s",
+                        "LGBTQ+ All Ages",
                         "Yes",
                       ],
+                      ["4", "Tiger Stripes", "8k", "Yes", "120s", "35+", "No"],
+                      ["4", "SuperHero", "38k", "Yes", "15s", "18-30", "Yes"],
                     ]}
                   />
                 ),
