@@ -38,11 +38,16 @@ import SubscriptionsIcon from "@material-ui/icons/Subscriptions";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import { bugs, website, server } from "variables/general.js";
 import TextField from "@material-ui/core/TextField";
-
+import TopRowCard from "components/Card/TopRowCard";
+import EmbedCard from "components/Card/EmbedCard";
+import ChartCard from "components/Card/ChartCard";
+import ChartCardTabs from "components/Card/ChartCardTabs";
+import PieChartInfluancer from "components/PieChart/PieChartInfluancer";
 import {
   twitterChart,
   emailsSubscriptionChart,
   completedTasksChart,
+  dailySalesChart,
 } from "variables/charts.js";
 
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
@@ -90,84 +95,62 @@ export default function Dashboard() {
   return (
     <div>
       <GridContainer>
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="success" stats icon>
-              <CardIcon color="success">
-                <AttachMoneyIcon />
-              </CardIcon>
-              <p className={classes.cardCategory}>Marketing Budget</p>
-              <h3 className={classes.cardTitle}>$3,000</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Warning />
-                Available Budget: $10,000
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="info" stats icon>
-              <CardIcon color="info">
-                <Twitter />
-              </CardIcon>
-              <p className={classes.cardCategory}>Followers On Twitter</p>
-              <h3 className={classes.cardTitle}>-600</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Update />
-                Last 24 hours
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="danger" stats icon>
-              <CardIcon color="danger">
-                <ThumbDownIcon />
-              </CardIcon>
-              <p className={classes.cardCategory}>
-                Brand Perception on Platform
-              </p>
-              <h3 className={classes.cardTitle}>Negative</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <Update />
-                Last 24 hours
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
-          <Card>
-            <CardHeader color="primary" stats icon>
-              <CardIcon color="primary">
-                <DynamicFeedIcon />
-              </CardIcon>
-              <p className={classes.cardCategory}>
-                Top Trending Beauty Hashtag
-              </p>
-              <h3 className={classes.cardTitle}>#CancelBrandX</h3>
-            </CardHeader>
-            <CardFooter stats>
-              <div className={classes.stats}>
-                <DateRange />
-                Last 24 Hours
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
+        <TopRowCard
+          xs={12}
+          sm={6}
+          md={3}
+          color="success"
+          icon={<AttachMoneyIcon />}
+          icon2={<Warning />}
+          category="Marketing Budget"
+          title="$3,000"
+          lastUpdate="Available Budget: $10,000"
+        />
+        <TopRowCard
+          xs={12}
+          sm={6}
+          md={3}
+          color="info"
+          icon={<Twitter />}
+          icon2={<Update />}
+          category="Followers on instagram"
+          title="-600"
+          lastUpdate="Last 24 Hours"
+        />
+        <TopRowCard
+          xs={12}
+          sm={6}
+          md={3}
+          color="danger"
+          icon={<ThumbDownIcon />}
+          icon2={<Update />}
+          category="Brand Perception on Platform"
+          title="Negative"
+          lastUpdate="Last 24 Hours"
+        />
+
+        <TopRowCard
+          xs={12}
+          sm={6}
+          md={3}
+          color="primary"
+          icon={<DynamicFeedIcon />}
+          icon2={<DateRange />}
+          category="Top Rending Beauty Video"
+          title="#CancelBrandX"
+          lastUpdate="Last 24 Hours"
+        />
       </GridContainer>
       <GridContainer>
         <GridItem xs={12} sm={12} md={4}>
-          <GridItem xs={12} sm={12} md={12}>
-            <Card chart>
-              <CardHeader color="info">
+          <EmbedCard
+            xs={12}
+            sm={12}
+            md={12}
+            color="info"
+            title="Trending InstaGram Post"
+            embed={
+              <div>
                 <blockquote className="twitter-tweet">
                   <p lang="en" dir="ltr">
                     Click the link to see my latest empties video with some
@@ -199,29 +182,23 @@ export default function Dashboard() {
                     December 2, 2020
                   </a>
                 </blockquote>{" "}
-              </CardHeader>
-              <CardBody>
-                <h4 className={classes.cardTitle}>
-                  Tweets with Trending Hashtag
-                </h4>
-                <p className={classes.cardCategory}>40,000 ReTweets</p>
-              </CardBody>
-              <CardFooter chart>
-                <div className={classes.stats}>
-                  <AccessTime /> updated 4 minutes ago
-                </div>
-              </CardFooter>
-            </Card>
-          </GridItem>
-          <GridItem xs={12} sm={12} md={12}>
-            <Card>
-              <CardHeader color="info" stats icon>
-                <CardIcon color="info">
-                  <TimelineIcon />
-                </CardIcon>
-                <h3 className={classes.cardCategory}># Trends (per hour)</h3>
-              </CardHeader>
-              <CardBody chart>
+              </div>
+            }
+            category="40,000 Likes"
+            icon2={<AccessTime />}
+            lastUpdate="updated 4 minutes ago"
+          />
+          <ChartCard
+            xs={12}
+            sm={12}
+            md={12}
+            color="info"
+            icon={<TimelineIcon />}
+            icon2={<AccessTime />}
+            category="#Trends (per hour)"
+            title="Trending Tags"
+            cardbody={
+              <div>
                 <ChartistGraph
                   className="ct-chart"
                   data={twitterChart.data}
@@ -231,7 +208,7 @@ export default function Dashboard() {
                 />
                 <p className={classes.cardCategory}>
                   <span className={classes.stats}>
-                    <LensIcon style={{ color: "#eeeeee" }} />
+                    <LensIcon style={{ color: "#ee22ee" }} />
                   </span>{" "}
                   CancelX{" "}
                   <span>
@@ -251,231 +228,12 @@ export default function Dashboard() {
                   </span>{" "}
                   glamazon{" "}
                 </p>
-              </CardBody>
-              <CardFooter chart>
-                <div className={classes.stats}>
-                  <AccessTime /> updated 4 minutes ago
-                </div>
-              </CardFooter>
-            </Card>
-          </GridItem>
-        </GridItem>
-        {/* <GridItem xs={12} sm={12} md={8}>
-          <Card>
-            <CardHeader color="info">
-              <h4 className={classes.cardTitleWhite}>Influancer Breakdown</h4>
-              <p className={classes.cardCategoryWhite}>
-                List of top influancers on Youtube
-              </p>
-            </CardHeader>
-            <CardBody>
-              <Table
-                tableHeaderColor="info"
-                tableHead={[
-                  "ID",
-                  "Influancer",
-                  "Preferred Brand (mode 24 hours)",
-                  "Likes our brand overall",
-                  "Positive view of our brand",
-                  "Sponsored",
-                  "Demonitized on YouTube.",
-                  "Notes",
-                ]}
-                tableData={[
-                  [
-                    "0",
-                    "General Public",
-                    "BrandX",
-                    "No",
-                    "Yes",
-                    "No",
-                    "TikTok",
-                  ],
-                  [
-                    "1",
-                    "Online Influancer",
-                    "BrandY",
-                    "yes",
-                    "Yes",
-                    "Yes",
-                    "Instagram",
-                  ],
-                  ["2", "Model", "BrandZ", "No", "No", "No", "Twitter"],
-                  ["3", "Vlogger", "BrandX", "No", "Yes", "Yes", "YouTube"],
-                  ["4", "Drama Queen", "BrandQ", "No", "No", "No", "SnapChat"],
-                ]}
-              />
-            </CardBody>
-          </Card>
-        </GridItem> */}
-        <GridItem xs={12} sm={12} md={8}>
-          <CustomTabs
-            title="Influancer Breakdown:"
-            headerColor="primary"
-            tabs={[
-              {
-                tabName: "Top Influancers",
-                tabIcon: ArrowUpward,
-                tabContent: (
-                  <Table
-                    tableHeaderColor="info"
-                    tableHead={[
-                      "ID",
-                      "Influancer",
-                      "Notes",
-                      "Subscribers",
-                      "Avg. View Count",
-                      "Favorite Brand",
-                      "Likes Us",
-                      "% Users Refs",
-                      "Sponsored by us",
-                      "Demonitized?",
-                    ]}
-                    tableData={[
-                      [
-                        "1",
-                        "PreechyKeen",
-                        <TextField
-                          id="standard-multiline-flexible"
-                          fullWidth
-                          multiline
-                          rowsMax={4}
-                          value={value}
-                          onChange={handleChange}
-                        />,
-                        "300M",
-                        "250k",
-                        "BrandX",
-                        "No",
-                        "43%",
-                        "No",
-                        "No",
-                      ],
-                      [
-                        "2",
-                        "Bew T. Qween",
-                        <TextField
-                          id="standard-multiline-flexible"
-                          fullWidth
-                          multiline
-                          rowsMax={4}
-                          value={balue}
-                          onChange={handleChange2}
-                        />,
-                        "245M",
-                        "168K",
-                        "Our Brand",
-                        "Yes",
-                        "36%",
-                        "Yes",
-                        "No",
-                      ],
-                      [
-                        "3",
-                        "StarStruck",
-                        <TextField
-                          id="standard-multiline-flexible"
-                          fullWidth
-                          multiline
-                          rowsMax={4}
-                          value={calue}
-                          onChange={handleChange3}
-                        />,
-                        "208M",
-                        "108K",
-                        "BrandZ",
-                        "No",
-                        "22%",
-                        "No",
-                        "No",
-                      ],
-                      [
-                        "4",
-                        "Drama Donna",
-                        <TextField
-                          id="standard-multiline-flexible"
-                          fullWidth
-                          multiline
-                          rowsMax={4}
-                          value={dalue}
-                          onChange={handleChange4}
-                        />,
-                        "104M",
-                        "112K",
-                        "BrandD",
-                        "Yes",
-                        "33%",
-                        "No",
-                        "Yes",
-                      ],
-                      [
-                        "5",
-                        "Wine N Fine",
-                        <TextField
-                          id="standard-multiline-flexible"
-                          fullWidth
-                          multiline
-                          rowsMax={4}
-                          value={ealue}
-                          onChange={handleChange5}
-                        />,
-                        "88M",
-                        "92K",
-                        "Our Brand",
-                        "Yes",
-                        "28%",
-                        "Yes",
-                        "No",
-                      ],
-                    ]}
-                  />
-                ),
-              },
-              {
-                tabName: "Ad Campaigns",
-                tabIcon: Code,
-                tabContent: (
-                  <Table
-                    tableHeaderColor="info"
-                    tableHead={[
-                      "ID",
-                      "Ad Title",
-                      "Average clicks per day",
-                      "Skippable?",
-                      "Run Time",
-                      "Market",
-                      "Mentioned Favorably",
-                    ]}
-                    tableData={[
-                      ["0", "QuickN EZ", "40k", "No", "5s", "18-30", "Yes"],
-                      [
-                        "1",
-                        "XPress Route",
-                        "80k",
-                        "Yes",
-                        "30s",
-                        "12-25",
-                        "Yes",
-                      ],
-                      ["2", "Shock N Aww", "12K", "No", "30s", "20-45", "No"],
-                      [
-                        "3",
-                        "Discovery",
-                        "67K",
-                        "yes",
-                        "60s",
-                        "LGBTQ+ All Ages",
-                        "Yes",
-                      ],
-                      ["4", "Tiger Stripes", "8k", "Yes", "120s", "35+", "No"],
-                      ["4", "SuperHero", "38k", "Yes", "15s", "18-30", "Yes"],
-                    ]}
-                  />
-                ),
-              },
-            ]}
+              </div>
+            }
+            lastUpdate="updated 4 minutes ago"
           />
         </GridItem>
+        <ChartCardTabs color="info" />
       </GridContainer>
     </div>
   );
