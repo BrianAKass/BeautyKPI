@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import GridItem from "components/Grid/GridItem.js";
 import Table from "components/Table/Table.js";
@@ -8,7 +9,7 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 const useStyles = makeStyles(styles);
-export default function ChartCard(props) {
+export default function TableCard(props) {
   const classes = useStyles();
   return (
     <GridItem xs={props.xs} sm={props.sm} md={props.md}>
@@ -56,3 +57,14 @@ export default function ChartCard(props) {
     </GridItem>
   );
 }
+TableCard.propTypes = {
+  xs: PropTypes.number,
+  sm: PropTypes.number,
+  md: PropTypes.number,
+  color: PropTypes.string,
+  icon2: PropTypes.any,
+  lastUpdate: PropTypes.string,
+  category: PropTypes.string,
+  title: PropTypes.string,
+  headerContent: PropTypes.any,
+};

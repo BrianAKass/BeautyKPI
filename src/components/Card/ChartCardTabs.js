@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import Code from "@material-ui/icons/Code";
 import GridItem from "components/Grid/GridItem.js";
@@ -6,7 +7,7 @@ import Table from "components/Table/Table.js";
 import CustomTabs from "components/CustomTabs/CustomTabs.js";
 import TextField from "@material-ui/core/TextField";
 
-export default function ChartCard(props) {
+export default function ChartCardTabs(props) {
   const [value, setValue] = React.useState(`Vegan. Opposes animal testing.`);
   const [balue, setBalue] = React.useState("Known For Doing Challenges");
   const [calue, setCalue] = React.useState(
@@ -201,3 +202,7 @@ export default function ChartCard(props) {
     </GridItem>
   );
 }
+
+ChartCardTabs.propTypes = {
+  color: PropTypes.string,
+};

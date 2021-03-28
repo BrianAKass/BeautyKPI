@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import GridItem from "components/Grid/GridItem.js";
 import Card from "components/Card/Card.js";
@@ -30,3 +31,16 @@ export default function ChartCard(props) {
     </GridItem>
   );
 }
+
+ChartCard.propTypes = {
+  xs: PropTypes.number,
+  sm: PropTypes.number,
+  md: PropTypes.number,
+  color: PropTypes.string,
+  icon: PropTypes.any,
+  icon2: PropTypes.any,
+  lastUpdate: PropTypes.string,
+  category: PropTypes.string,
+  title: PropTypes.string,
+  cardbody: PropTypes.any,
+};
