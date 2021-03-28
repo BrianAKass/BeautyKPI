@@ -9,17 +9,17 @@ import CardIcon from "components/Card/CardIcon.js";
 import CardFooter from "components/Card/CardFooter.js";
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 const useStyles = makeStyles(styles);
-export default function ChartCard(props) {
+export default function ChartCard2(props) {
   const classes = useStyles();
   return (
     <GridItem xs={props.xs} sm={props.sm} md={props.md}>
-      <Card>
-        <CardHeader color={props.color} stats icon>
-          <CardIcon color={props.color}>{props.icon}</CardIcon>
-          <div className={classes.cardCategory}>{props.category}</div>
+      <Card chart>
+        <CardHeader color={props.color}>{props.headerContent}</CardHeader>
+        <CardBody chart>
           <h3 className={classes.cardTitle}>{props.title}</h3>
-        </CardHeader>
-        <CardBody chart>{props.cardbody}</CardBody>
+          <div className={classes.cardCategory}>{props.category}</div>
+          {props.cardbody}
+        </CardBody>
         <CardFooter chart>
           <div className={classes.stats}>
             {props.icon2}
