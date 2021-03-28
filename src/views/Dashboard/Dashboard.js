@@ -1,6 +1,5 @@
 import React from "react";
 import ChartistGraph from "react-chartist";
-import { makeStyles } from "@material-ui/core/styles";
 import DateRange from "@material-ui/icons/DateRange";
 import DynamicFeedIcon from "@material-ui/icons/DynamicFeed";
 import Update from "@material-ui/icons/Update";
@@ -18,23 +17,12 @@ import ChartCard from "components/Card/ChartCard";
 import TableCard from "components/Card/TableCard";
 import PieChartSocial from "components/PieChart/PieChartSocialBreakdown";
 
-import {
-  dailySalesChart,
-  emailsSubscriptionChart,
-  completedTasksChart,
-} from "variables/charts.js";
-
-import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
+import { dailySalesChart, emailsSubscriptionChart } from "variables/charts.js";
 
 // My Imports
-import { PieChart } from "react-minimal-pie-chart";
 import PieChartInfluancer from "components/PieChart/PieChartInfluancer";
 
-const useStyles = makeStyles(styles);
-
 export default function Dashboard() {
-  const classes = useStyles();
-
   return (
     <div>
       <GridContainer>

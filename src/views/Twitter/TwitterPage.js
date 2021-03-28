@@ -1,59 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 // react plugin for creating charts
 import ChartistGraph from "react-chartist";
 // @material-ui/core
 import { makeStyles } from "@material-ui/core/styles";
-import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
-import Store from "@material-ui/icons/Store";
 import Warning from "@material-ui/icons/Warning";
-import Info from "@material-ui/icons/Info";
 import DateRange from "@material-ui/icons/DateRange";
 import DynamicFeedIcon from "@material-ui/icons/DynamicFeed";
-import LocalOffer from "@material-ui/icons/LocalOffer";
 import Update from "@material-ui/icons/Update";
-import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import AccessTime from "@material-ui/icons/AccessTime";
-import Accessibility from "@material-ui/icons/Accessibility";
-import BugReport from "@material-ui/icons/BugReport";
-import Code from "@material-ui/icons/Code";
-import Cloud from "@material-ui/icons/Cloud";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import LensIcon from "@material-ui/icons/Lens";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import Table from "components/Table/Table.js";
-import Tasks from "components/Tasks/Tasks.js";
-import CustomTabs from "components/CustomTabs/CustomTabs.js";
-import Danger from "components/Typography/Danger.js";
-import Card from "components/Card/Card.js";
-import CardHeader from "components/Card/CardHeader.js";
-import CardIcon from "components/Card/CardIcon.js";
-import CardBody from "components/Card/CardBody.js";
-import CardFooter from "components/Card/CardFooter.js";
-import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
-import SubscriptionsIcon from "@material-ui/icons/Subscriptions";
-import YouTubeIcon from "@material-ui/icons/YouTube";
-import { bugs, website, server } from "variables/general.js";
-import TextField from "@material-ui/core/TextField";
 import TopRowCard from "components/Card/TopRowCard";
 import EmbedCard from "components/Card/EmbedCard";
 import ChartCard from "components/Card/ChartCard";
 import ChartCardTabs from "components/Card/ChartCardTabs";
-import PieChartInfluancer from "components/PieChart/PieChartInfluancer";
-import {
-  twitterChart,
-  emailsSubscriptionChart,
-  completedTasksChart,
-  dailySalesChart,
-} from "variables/charts.js";
+
+import { twitterChart } from "variables/charts.js";
 
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 
 // My Imports
-import { PieChart } from "react-minimal-pie-chart";
 import Twitter from "@material-ui/icons/Twitter";
 import TimelineIcon from "@material-ui/icons/Timeline";
 
@@ -61,32 +32,7 @@ const useStyles = makeStyles(styles);
 
 export default function Dashboard() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(`Vegan. Opposes animal testing.`);
-  const [balue, setBalue] = React.useState("Known For Doing Challenges");
-  const [calue, setCalue] = React.useState(
-    "Copies Pop Culture Fashion. Check for popular female leads."
-  );
-  const [dalue, setDalue] = React.useState(
-    "Promotes cancel culture. May be risky"
-  );
-  const [ealue, setEalue] = React.useState(
-    "LongForm Entertaininer. Older audiance key demograph"
-  );
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
-  const handleChange2 = (event) => {
-    setBalue(event.target.value);
-  };
-  const handleChange3 = (event) => {
-    setCalue(event.target.value);
-  };
-  const handleChange4 = (event) => {
-    setDalue(event.target.value);
-  };
-  const handleChange5 = (event) => {
-    setEalue(event.target.value);
-  };
+
   useEffect(() => {
     if (window.twttr) {
       window.twttr.widgets.load();

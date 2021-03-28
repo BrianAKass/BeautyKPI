@@ -1,16 +1,12 @@
-import React, { useState } from "react";
-
-import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
 import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import Code from "@material-ui/icons/Code";
 import GridItem from "components/Grid/GridItem.js";
 import Table from "components/Table/Table.js";
 import CustomTabs from "components/CustomTabs/CustomTabs.js";
 import TextField from "@material-ui/core/TextField";
-import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
-const useStyles = makeStyles(styles);
+
 export default function ChartCard(props) {
-  const classes = useStyles();
   const [value, setValue] = React.useState(`Vegan. Opposes animal testing.`);
   const [balue, setBalue] = React.useState("Known For Doing Challenges");
   const [calue, setCalue] = React.useState(
@@ -67,6 +63,7 @@ export default function ChartCard(props) {
                     "PreechyKeen",
                     <TextField
                       id="standard-multiline-flexible"
+                      key="a"
                       fullWidth
                       multiline
                       rowsMax={4}
@@ -86,6 +83,7 @@ export default function ChartCard(props) {
                     "Bew T. Qween",
                     <TextField
                       id="standard-multiline-flexible"
+                      key="b"
                       fullWidth
                       multiline
                       rowsMax={4}
@@ -105,6 +103,7 @@ export default function ChartCard(props) {
                     "StarStruck",
                     <TextField
                       id="standard-multiline-flexible"
+                      key="c"
                       fullWidth
                       multiline
                       rowsMax={4}
@@ -123,6 +122,7 @@ export default function ChartCard(props) {
                     "4",
                     "Drama Donna",
                     <TextField
+                      key="d"
                       id="standard-multiline-flexible"
                       fullWidth
                       multiline
@@ -143,6 +143,7 @@ export default function ChartCard(props) {
                     "Wine N Fine",
                     <TextField
                       id="standard-multiline-flexible"
+                      key="e"
                       fullWidth
                       multiline
                       rowsMax={4}

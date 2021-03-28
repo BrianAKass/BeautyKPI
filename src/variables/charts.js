@@ -72,7 +72,13 @@ const dailySalesChart = {
 const twitterChart = {
   data: {
     labels: [1, 2, 3, 4, 5, 6, 7],
-    series: [[131, 115, 123, 158, 63, 50, 59],[18,20,23,25,31,30,38],[53,40,45,38,93,112,136],[12,38,53,85,110,138,198],[150,93,45,68,53,44,77]],
+    series: [
+      [131, 115, 123, 158, 63, 50, 59],
+      [18, 20, 23, 25, 31, 30, 38],
+      [53, 40, 45, 38, 93, 112, 136],
+      [12, 38, 53, 85, 110, 138, 198],
+      [150, 93, 45, 68, 53, 44, 77],
+    ],
   },
   options: {
     lineSmooth: Chartist.Interpolation.cardinal({
@@ -85,7 +91,7 @@ const twitterChart = {
       right: 0,
       bottom: 0,
       left: 0,
-    }
+    },
   },
   // for animation
   animation: {
